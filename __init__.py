@@ -35,7 +35,7 @@ __plugin_meta__ = PluginMetadata(
     }
 )
 gMatcher = on_command("崩铁抽卡记录", aliases={"btckjl"}, priority=1)
-aMatcher = on_command("更新抽卡地址", aliases={"更新authkey"}, priority=1)
+aMatcher = on_command("更新抽卡地址", aliases={"更新authkey", "gxckjl"}, priority=1)
 
 @gMatcher.handle()
 async def gachaHistory(bot: Bot,event: MessageEvent, state: T_State):
