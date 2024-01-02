@@ -24,7 +24,7 @@ __starrail_version__ = "v1.0.0"
 __tarot_usages__ = f'''
 崩铁抽卡记录 {__starrail_version__}
 [崩铁抽卡记录] 显示崩铁抽卡分析图
-[更新抽卡地址] 抽卡记录authkey失效时更新抽卡地址'''.strip()
+[更新抽卡地址] 抽卡记录authkey失效时更新抽卡地址,建议私聊使用'''.strip()
 __plugin_meta__ = PluginMetadata(
     name="崩铁抽卡记录分析",
     description="崩铁抽卡记录分析",
