@@ -6,6 +6,7 @@ from nonebot.exception import FinishedException
 from nonebot.log import logger
 from nonebot.matcher import Matcher
 from nonebot.params import CommandArg
+from nonebot.plugin import PluginMetadata
 
 try:
     from nonebot.adapters.onebot.v11 import (Bot, GroupMessageEvent, Message,
@@ -19,6 +20,20 @@ except ImportError:
 from .data_source import getGachaData, checkAuthkey, getCacheData, alterAuthkey
 from .data_render import getInfoImages, mergeImage, drewPie, getStat
 
+__starrail_version__ = "v1.0.0"
+__tarot_usages__ = f'''
+崩铁抽卡记录 {__starrail_version__}
+[崩铁抽卡记录] 显示崩铁抽卡分析图
+[更新抽卡地址] 抽卡记录authkey失效时更新抽卡地址'''.strip()
+__plugin_meta__ = PluginMetadata(
+    name="崩铁抽卡记录分析",
+    description="崩铁抽卡记录分析",
+    usage=__tarot_usages__,
+    extra={
+        "author": "congyumeow <l72221112@gmail.com>",
+        "version": "v1.0.0"
+    }
+)
 gMatcher = on_command("崩铁抽卡记录", aliases={"btckjl"}, priority=1)
 aMatcher = on_command("更新抽卡地址", aliases={"更新authkey"}, priority=1)
 
