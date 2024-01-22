@@ -5,7 +5,7 @@ import os
 import requests
 
 from time import time
-from .__meta__ import getMeta
+from __meta__ import getMeta
 
 localDir = getMeta("localDir")
 gachaTypeDict = getMeta("gachaTypeDict")
@@ -137,7 +137,7 @@ def getRawData(authkey, force: bool = False):
             uid = ""
             if len(data) == 20:
                 end_id = data[19]["id"]
-            if len(data) < 20:
+            if 1 <= len(data) < 20:
                 res = []
                 for i in result:
                     rex = {}
@@ -156,6 +156,8 @@ def getRawData(authkey, force: bool = False):
                 gachaData["time"] = int(time())
                 gachaData["url"] = url
                 gachaData["gachaLogs"][gachaType] = res
+                break
+            if len(data) == 0:
                 break
     raw["data"] = gachaData
     return raw
@@ -184,7 +186,10 @@ def mergeData(cache: dict, raw: dict, qq: str, fw: bool = True):
     merged = {"msg": "", "data": {}}
     for gachaType in gachaTypeDict:
         logsLoc = locData["gachaLogs"][gachaType]
-        logsNew = newData["gachaLogs"][gachaType]
+        if gachaType in newData["gachaLogs"].keys():
+            logsNew = newData["gachaLogs"][gachaType]
+        else:
+            logsNew = locData["gachaLogs"][gachaType]
         if logsLoc != logsNew:
             tempList = []
             itemsGot = [[got["time"], got["name"]] for got in logsLoc]
