@@ -5,7 +5,7 @@ import os
 import requests
 
 from time import time
-from __meta__ import getMeta
+from .__meta__ import getMeta
 
 localDir = getMeta("localDir")
 gachaTypeDict = getMeta("gachaTypeDict")
