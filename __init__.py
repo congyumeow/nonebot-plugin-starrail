@@ -20,7 +20,7 @@ except ImportError:
 from .data_source import getGachaData, checkAuthkey, getCacheData, alterAuthkey
 from .data_render import getInfoImages, mergeImage, drewPie, getStat
 
-__starrail_version__ = "v1.1.0"
+__starrail_version__ = "v1.1.5"
 __tarot_usages__ = f'''
 崩铁抽卡记录 {__starrail_version__}
 [崩铁抽卡记录] 显示崩铁抽卡分析图
@@ -31,7 +31,7 @@ __plugin_meta__ = PluginMetadata(
     usage=__tarot_usages__,
     extra={
         "author": "congyumeow <l72221112@gmail.com>",
-        "version": "v1.1.0"
+        "version": __starrail_version__
     }
 )
 gMatcher = on_command("崩铁抽卡记录", aliases={"btckjl"}, priority=1)
